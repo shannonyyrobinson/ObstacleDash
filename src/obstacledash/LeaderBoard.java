@@ -9,6 +9,10 @@ package obstacledash;
  *
  * @author shann
  */
-public class LeaderBoard {
+public interface LeaderBoard {
+    public void setName(String name);
+    public String getName();
     
+    public void setHighscore(int highscore);
+    public int getHighscore();
 }

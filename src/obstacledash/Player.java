@@ -9,7 +9,7 @@ package obstacledash;
  *
  * @author shann
  */
-public abstract class Player extends MovingThing implements Collidable{
+public class Player extends MovingThing implements Collidable{
     public Player(){
         
     }

@@ -12,81 +12,106 @@ package obstacledash;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public abstract class MovingThing implements Locatable {
+public class MovingThing implements Locatable {
 
-    private int xPos;
-    private int yPos;
-    private int width;
-    private int height;
+        private int xPos;
+	private int yPos;
+	private int width;
+	private int height;
 
-    public MovingThing() {
-        xPos = 10;
-        yPos = 10;
-        width = 10;
-        height = 10;
-    }
+	private Color color;
 
-    public MovingThing(int x, int y) {
-        xPos = x;
-        yPos = y;
-        width = 10;
-        height = 10;
-    }
+	public MovingThing()
+	{
+		this(10, 10, 10, 10, Color.BLACK);
+	}
+	
+	public MovingThing(int x, int y)
+	{
+		this(x, y, 10, 10, Color.BLACK);
+	}
+	
+	public MovingThing (int x, int y, int width, int height, Color color)
+	{
+		setPos(x, y);
+		setWidth(width);
+		setHeight(height);
+		setColor(color);
+	}
+	
+	public void setX(int x)
+	{
+		xPos=x;
+	}
+	
+	public void setY(int y)
+	{
+		yPos = y;
+	}
+	
+	public void setPos(int x, int y)
+	{
+		setX(x);
+		setY(y);
+	}
+	
+	public void setWidth(int wid)
+	{
+		width=wid;
+	}
 
-    public MovingThing(int x, int y, int w, int h) {
-        //add code here
-        xPos = x;
-        yPos = y;
-        width = w;
-        height = h;
-    }
+	public void setHeight(int hei)
+	{
+		height=hei;
+	}
+   
 
-    public void setPos(int x, int y) {
-        //add code here
-        xPos = x;
-        yPos = y;
-    }
+   public void setColor(Color col)
+   {
+	   color=col;
+   }
+   
+   public void draw(Graphics window)
+   {
+	   window.setColor(color);
+	   window.fillRect(getX(), getY(), getWidth(), getHeight());
+   }
+   
+   public void draw(Graphics window, Color col)
+   {
+	   window.setColor(col);
+	   window.fillRect(getX(), getY(), getWidth(), getHeight());
+   }
+   
 
-    public void setX(int x) {
-        //add code here
-        xPos = x;
-    }
+   //add the other get methods
+	public int getX()
+	{
+		return xPos;
+	}
+	   
+	public int getY()
+	{
+		return yPos;
+	}
 
-    public void setY(int y) {
-        yPos = y;
-    }
-
-    public int getX() {
-        return xPos;  
-    }
-
-    public int getY() {
-        return yPos;  
-    }
-
-    public void setWidth(int w) {
-        //add code here
-        width = w;
-    }
-
-    public void setHeight(int h) {
-        //add code here
-        height  = h;
-    }
-
-    public int getWidth() {
-        return width;  
-    }
-
-    public int getHeight() {
-        return height;  
-    }
-
-    public abstract void move(String direction);
-
-    public abstract void draw(Graphics window);
-
-    public String toString() {
-        return getX() + " " + getY() + " " + getWidth() + " " + getHeight();
-    }
+	public int getWidth()
+	{
+		return width;
+	}
+	
+	public int getHeight()
+	{
+		return height;
+	}
+	
+	public Color getColor()
+	{
+		return color;
+	}
+	
+	public String toString()
+	{
+		return xPos + " " + yPos + " " + width + " " + height + " " + color;
+	}
 }
