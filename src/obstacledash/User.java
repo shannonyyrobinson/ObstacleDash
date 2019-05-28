@@ -9,6 +9,9 @@ package obstacledash;
  *
  * @author shann
  */
-public class User {
+public class User implements LeaderBoard{
+    public User(){
+        
+    }
     
 }

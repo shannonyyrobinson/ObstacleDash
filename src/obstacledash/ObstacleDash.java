@@ -19,10 +19,10 @@ public class ObstacleDash extends JFrame {
     
     public ObstacleDash()
 	{
-		
+		super("OBSTACLEDASH");
 		setSize(WIDTH,HEIGHT);
 
-		ObstacleDash game = new ObstacleDashGame();
+		ObstacleDashGame game = new ObstacleDashGame();
 
 		((Component)game).setFocusable(true);
 		getContentPane().add(game);
