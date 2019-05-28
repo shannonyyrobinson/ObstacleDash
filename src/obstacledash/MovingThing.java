@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package obstacledash;
 
 /**
  *
@@ -11,28 +12,28 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public abstract class Obstacle implements Locatable {
+public abstract class MovingThing implements Locatable {
 
     private int xPos;
     private int yPos;
     private int width;
     private int height;
 
-    public Obstacle() {
+    public MovingThing() {
         xPos = 10;
         yPos = 10;
         width = 10;
         height = 10;
     }
 
-    public Obstacle(int x, int y) {
+    public MovingThing(int x, int y) {
         xPos = x;
         yPos = y;
         width = 10;
         height = 10;
     }
 
-    public Obstacle(int x, int y, int w, int h) {
+    public MovingThing(int x, int y, int w, int h) {
         //add code here
         xPos = x;
         yPos = y;
