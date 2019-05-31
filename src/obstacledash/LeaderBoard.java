@@ -6,7 +6,7 @@
 package obstacledash;
 
 /**
- *
+ *                                                                             
  * @author shann
  */
 public interface LeaderBoard {

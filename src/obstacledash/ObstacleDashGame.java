@@ -21,12 +21,20 @@ import java.awt.event.ActionListener;
  * @author shann
  */
 public class ObstacleDashGame extends Canvas implements KeyListener, Runnable{
+    private Obstacle cactus;
+    private Obstacle bird;
+    private Player dino;
+    private MovingThing erase;
+    
     public ObstacleDashGame() {
     	setBackground(Color.WHITE);
 		setVisible(true);
 		
 		new Thread(this).start();
-		addKeyListener(this);		//starts the key thread to log key strokes
+		addKeyListener(this);	
+                
+        
+        
 	}
 	
    public void update(Graphics window){
