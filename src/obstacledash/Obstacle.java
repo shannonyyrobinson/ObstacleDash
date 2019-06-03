@@ -19,6 +19,7 @@ import java.awt.Graphics;
 public class Obstacle extends Block implements Collidable
 {
     private int speed;
+    private Color color;
    
     
     public Obstacle()
@@ -28,9 +29,20 @@ public class Obstacle extends Block implements Collidable
         
     }
     
+    public Obstacle(Color c){
+        super (800, 350, 50, 100);
+        speed = 3;
+        color = c;
+    }
+    
     public void setSpeed(int s)
     {
         speed = s;
+    }
+    
+    public void setColor(Color c)
+    {
+        color = c;
     }
     
     public void move(Graphics window)

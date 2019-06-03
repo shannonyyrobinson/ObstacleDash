@@ -35,10 +35,16 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
     private Player player;
     private Obstacle obstacle;
     private LeaderBoard leaderBoard;
+    private int[] obstacleHeight;
 
     public ObstacleDash()
     {
         keys = new boolean[2];
+        
+        obstacleHeight = new int[4];
+        for (int i = 1; i<=4; i++){
+            obstacleHeight[i-1] = 25*i;
+        }
 
         setBackground(Color.DARK_GRAY);
         setVisible(true);
@@ -63,24 +69,22 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
 
         Graphics graphToBack = back.createGraphics();
         
-        // ground
-        graphToBack.setColor(Color.black);
-        graphToBack.fillRect(0, 450, 800, 200);
         
-        // score
         graphToBack.setColor(Color.black);
         graphToBack.fillRect(350, 0, 200, 150);
         graphToBack.setColor(Color.BLUE);
+        graphToBack.drawString("LEADERBOARD", 375, 10);
         graphToBack.drawString("CURRENT SCORE: " + score, 375, 50);
         graphToBack.drawString("HIGH SCORE: " + leaderBoard.get(), 375, 100);
+        graphToBack.setColor(Color.black);
+        graphToBack.fillRect(0, 450, 800, 200);
         
-        // jump
         player.draw(graphToBack);
         if(jump == true)
         {
             player.move(graphToBack);
             if(player.getY() == 150)
-                player.setSpeed(-5);
+                player.setSpeed(-2);
             if(player.getY() == 400)
             {
                 jump = false;
@@ -88,23 +92,20 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
             }
         }
         
-        // re draw obstacle
         obstacle.move(graphToBack);
         if(obstacle.getX()+obstacle.getWidth() <= 0)
         {
-            obstacle.draw(graphToBack,Color.white);
+            score++;
+            obstacle.draw(graphToBack,Color.DARK_GRAY);
             obstacle.setHeight((int) (Math.random()*50) + 50);
             obstacle.setX(800);
             obstacle.setY(400-(obstacle.getHeight()-50));
             obstacle.move(graphToBack);
             
-            score++;
+            
         }
         
-        // collision
-        if(obstacle.didCollideBottom(player) == true
-        && obstacle.didCollideTop(player) == true
-        && obstacle.didCollideLeft(player) == true
+        if(obstacle.didCollideBottom(player) == true && obstacle.didCollideTop(player) == true && obstacle.didCollideLeft(player) == true
         && obstacle.didCollideRight(player) == true)
         {
             obstacle.setSpeed(0);
@@ -116,15 +117,6 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
             }
         }
         
-        // level
-        if(score == 5)
-            obstacle.setSpeed(3);
-        if(score == 10)
-            obstacle.setSpeed(4);
-        if(score == 20)
-            obstacle.setSpeed(5);
-        if(score == 40)
-            obstacle.setSpeed(6);
         
         if (keys[0] == true)
         {
@@ -161,7 +153,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
             case KeyEvent.VK_SPACE:
                 keys[0] = true;
                 break;
-            case 'Q':
+            case KeyEvent.VK_ENTER:
                 keys[1] = true;
                 break;
         }
@@ -174,7 +166,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
             case KeyEvent.VK_SPACE:
                 keys[0] = false;
                 break;
-            case 'Q':
+            case KeyEvent.VK_ENTER:
                 keys[1] = false;
                 break;
         }
