@@ -39,7 +39,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
 
     public ObstacleDash()
     {
-        keys = new boolean[2];
+        keys = new boolean[3];
         
         obstacleHeight = new int[4];
         for (int i = 1; i<=4; i++){
@@ -97,7 +97,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
         {
             score++;
             obstacle.draw(graphToBack,Color.DARK_GRAY);
-            obstacle.setHeight((int) (Math.random()*50) + 50);
+            obstacle.setHeight(obstacleHeight[(int) (Math.random()*4)]);
             obstacle.setX(800);
             obstacle.setY(400-(obstacle.getHeight()-50));
             obstacle.move(graphToBack);
@@ -155,7 +155,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
                 break;
             case KeyEvent.VK_ENTER:
                 keys[1] = true;
-                break;
+                break;    
         }
     }
 
@@ -174,6 +174,15 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
 
     public void keyTyped(KeyEvent e)
     {
+        /*switch (toUpperCase(e.getKeyChar()))
+        {
+            case KeyEvent.VK_SPACE:
+                keys[0] = true;
+                break;
+            case KeyEvent.VK_ENTER:
+                keys[1] = true;
+                break;    
+        }*/
     }
 
     public void run()
