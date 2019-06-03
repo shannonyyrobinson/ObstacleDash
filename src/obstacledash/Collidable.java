@@ -1,12 +1,20 @@
 package obstacledash;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-import java.awt.Color;
-import java.awt.Graphics;
-
-public interface Collidable {
-
-    public abstract boolean didCollideRight(Object obj);
-
-    public abstract boolean didCollideTop(Object obj);
+/**
+ *
+ * @author shann
+ */
+public interface Collidable
+{
+    public boolean didCollideTop(Block block);
+    public boolean didCollideBottom(Block block);
+    public boolean didCollideLeft(Block block);
+    public boolean didCollideRight(Block block);
+    
 }
