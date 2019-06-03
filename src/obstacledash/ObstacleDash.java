@@ -83,7 +83,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
         if(jump == true)
         {
             player.move(graphToBack);
-            if(player.getY() == 150)
+            if(player.getY() == 250)
                 player.setSpeed(-2);
             if(player.getY() == 400)
             {
