@@ -15,16 +15,16 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Canvas;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
-import static java.lang.Character.*;
-import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+import static java.lang.Character.*;
+import java.awt.image.BufferedImage;
 
 public class ObstacleDash extends Canvas implements KeyListener, Runnable
 {
@@ -32,10 +32,10 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
     private BufferedImage back;
     private int score;
     private boolean jump;
-    private Player player;
     private Obstacle obstacle;
     private LeaderBoard leaderBoard;
     private int[] obstacleHeight;
+    private Player player;
 
     public ObstacleDash()
     {
@@ -130,14 +130,18 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
             obstacle.setX(800);
             obstacle.setY(400-(obstacle.getHeight()-50));
             obstacle.move(graphToBack);
-            obstacle.setSpeed(2);
-            
+            obstacle.setSpeed(3);
             player.draw(graphToBack, Color.DARK_GRAY);
             player.setY(400);
-            player.draw(graphToBack);
-            
-            
+            player.draw(graphToBack);            
         }
+        if (keys[2] == true)
+        {
+            score = 0;
+            graphToBack.setColor(Color.black);
+            graphToBack.fillRect(1000, 1000, 1000, 1000);
+        }
+        
         twoDGraph.drawImage(back, null, 0, 0);
     }
     
@@ -156,6 +160,9 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
             case KeyEvent.VK_ENTER:
                 keys[1] = true;
                 break;    
+            case KeyEvent.VK_ESCAPE:
+                keys[2] = true;
+                break;
         }
     }
 
@@ -169,20 +176,15 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable
             case KeyEvent.VK_ENTER:
                 keys[1] = false;
                 break;
+            case KeyEvent.VK_ESCAPE:
+                keys[2] = false;
+                break;
         }
     }
 
     public void keyTyped(KeyEvent e)
     {
-        /*switch (toUpperCase(e.getKeyChar()))
-        {
-            case KeyEvent.VK_SPACE:
-                keys[0] = true;
-                break;
-            case KeyEvent.VK_ENTER:
-                keys[1] = true;
-                break;    
-        }*/
+        
     }
 
     public void run()
