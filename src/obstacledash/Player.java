@@ -17,7 +17,7 @@ import java.awt.Graphics;
 public class Player extends Block
 {
     private int speed;
-    
+    private int lives = 3;
     public Player()
     {
         super(100,400,20,20,Color.black);
@@ -28,11 +28,27 @@ public class Player extends Block
     {
         speed = s;
     }
-    
+    public boolean loseLife(){
+        lives--;
+        lives = Math.max(0,lives);
+        return lives <=0;
+    }
+    public void draw(Graphics window){
+        window.setColor(getColor());
+        window.fillRect(getX(), getY(), getWidth(), getHeight());
+        window.setColor(Color.WHITE);
+        window.drawString(lives + "", getX(), getY() + getHeight());
+    }
     public void move(Graphics window)
     {
         draw(window, Color.DARK_GRAY);
         setY(getY() - speed);
         draw(window); 
-    }  
+    }
+    public void movePast(Graphics window, int n){
+        draw(window, Color.DARK_GRAY);
+        setX(n);
+        draw(window);
+    }
+    
 }
