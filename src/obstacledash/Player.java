@@ -28,6 +28,7 @@ public class Player extends Block
     {
         speed = s;
     }
+    //Michael
     public boolean loseLife(){
         lives--;
         lives = Math.max(0,lives);
@@ -45,6 +46,7 @@ public class Player extends Block
         setY(getY() - speed);
         draw(window); 
     }
+    //Michael
     public void movePast(Graphics window, int n){
         draw(window, Color.DARK_GRAY);
         setX(n);
