@@ -64,7 +64,6 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         }
 
         Graphics graphToBack = back.createGraphics();
-
         graphToBack.setColor(Color.black);
         graphToBack.fillRect(350, 0, 200, 150);
         graphToBack.setColor(Color.BLUE);
@@ -73,6 +72,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         graphToBack.drawString("HIGH SCORE: " + leaderBoard.get(), 375, 100);
         graphToBack.setColor(Color.black);
         graphToBack.fillRect(0, 450, 800, 200);
+        
 
         player.draw(graphToBack);
         if (jump == true) {
@@ -105,7 +105,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
                 obstacle.setSpeed(0);
                 player.setSpeed(0);
                 graphToBack.setColor(Color.GREEN);
-                graphToBack.drawString("GAME OVER", 375, 10); //Shannon
+                graphToBack.drawString("GAMEOVER", 400, 300); //Shannon
                 try {
                     leaderBoard.save(score);
                 } catch (IOException ex) {

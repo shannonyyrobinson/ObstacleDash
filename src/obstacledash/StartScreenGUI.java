@@ -5,6 +5,8 @@
  */
 package obstacledash;
 
+import java.awt.Color;
+
 /**
  *
  * @author shann
@@ -15,6 +17,7 @@ public class StartScreenGUI extends javax.swing.JFrame {
      * Creates new form StartScreenGUI
      */
     public static boolean play;
+    public static Color color;
     
     public StartScreenGUI() {
         initComponents();
@@ -31,11 +34,13 @@ public class StartScreenGUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Start = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        ObstacleDashLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        InstructionsLabel = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        ColorLabel = new javax.swing.JLabel();
+        ColorBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,19 +55,19 @@ public class StartScreenGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 255, 0));
-        jLabel1.setText("OBSTACLE DASH");
+        ObstacleDashLabel.setBackground(new java.awt.Color(0, 0, 0));
+        ObstacleDashLabel.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 48)); // NOI18N
+        ObstacleDashLabel.setForeground(new java.awt.Color(0, 255, 0));
+        ObstacleDashLabel.setText("OBSTACLE DASH");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Instructions:\nUse the space bar to hop over obstacles\nHopping over obstacles increases your score\nHop over as many obstacles as you can to beat your high score\nPress Enter to start the game again");
-        jTextArea1.setBorder(null);
-        jScrollPane1.setViewportView(jTextArea1);
+        InstructionsLabel.setEditable(false);
+        InstructionsLabel.setBackground(new java.awt.Color(0, 0, 0));
+        InstructionsLabel.setColumns(20);
+        InstructionsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        InstructionsLabel.setRows(5);
+        InstructionsLabel.setText("Instructions:\nUse the space bar to hop over obstacles\nHopping over obstacles increases your score\nHop over as many obstacles as you can to beat your high score\nPress Enter to start the game again");
+        InstructionsLabel.setBorder(null);
+        jScrollPane1.setViewportView(InstructionsLabel);
 
         jTextPane1.setBackground(new java.awt.Color(0, 0, 0));
         jTextPane1.setBorder(null);
@@ -72,36 +77,55 @@ public class StartScreenGUI extends javax.swing.JFrame {
         jTextPane1.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         jScrollPane2.setViewportView(jTextPane1);
 
+        ColorLabel.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
+        ColorLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ColorLabel.setText("Choose Player Color:");
+
+        ColorBox.setBackground(new java.awt.Color(0, 255, 0));
+        ColorBox.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
+        ColorBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BLACK", "RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addComponent(Start)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(205, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(185, 185, 185))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(207, Short.MAX_VALUE)
+                .addComponent(ObstacleDashLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(183, 183, 183))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(238, 238, 238)
+                        .addComponent(Start))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(ColorLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(40, 40, 40)
+                .addComponent(ObstacleDashLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ColorLabel)
+                    .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
                 .addComponent(Start)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -159,23 +183,31 @@ public class StartScreenGUI extends javax.swing.JFrame {
             }
         });
         */
-        
+        color = Color.BLACK;
         StartScreenGUI screen = new StartScreenGUI();
         //new StartScreenGUI().setVisible(true);
         while (play == false){
             screen.setVisible(true);
         }
+        //Shannon
+        /*if (((String)ColorBox.getSelectedItem()).equals("BLACK"))
+        {
+            color = Color.BLACK;
+        }*/
+        
         Game ObstacleDash = new Game();
         screen.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox ColorBox;
+    private javax.swing.JLabel ColorLabel;
+    private javax.swing.JTextArea InstructionsLabel;
+    private javax.swing.JLabel ObstacleDashLabel;
     private javax.swing.JButton Start;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }

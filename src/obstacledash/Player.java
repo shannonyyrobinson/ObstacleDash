@@ -17,11 +17,19 @@ import java.awt.Graphics;
 public class Player extends Block
 {
     private int speed;
+    private Color color;
     private int lives = 3;
     public Player()
     {
-        super(150,450,20,20,Color.black);
+        super(150,450,20,20,Color.BLACK);
         speed = 5;
+    }
+    
+    public Player(Color c) //Shannon
+    {
+        super(150,450,20,20);
+        speed = 5;
+        color = c;
     }
     
     public void setSpeed(int s)
