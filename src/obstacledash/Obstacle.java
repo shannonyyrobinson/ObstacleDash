@@ -45,6 +45,11 @@ public class Obstacle extends Block implements Collidable
         color = c;
     }
     
+    public void increaseSpeed()
+    {
+        speed = speed + 1;
+    }
+    
     public void move(Graphics window)
     {
         draw(window, Color.DARK_GRAY);

@@ -89,6 +89,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         obstacle.move(graphToBack);
         if (obstacle.getX() + obstacle.getWidth() <= 0) {
             score++;
+            obstacle.increaseSpeed();
             obstacle.draw(graphToBack, Color.DARK_GRAY);
             obstacle.setHeight(obstacleHeight[(int) (Math.random() * 4)]);
             obstacle.setX(800);
@@ -112,6 +113,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
                 player.movePast(graphToBack, obstacle.getX() + obstacle.getWidth() + 5);
             }
         }
+        
 
         if (keys[0] == true) {
             jump = true;
