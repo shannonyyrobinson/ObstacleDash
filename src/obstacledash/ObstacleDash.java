@@ -100,6 +100,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
 
         if (obstacle.didCollideBottom(player) == true && obstacle.didCollideTop(player) == true && obstacle.didCollideLeft(player) == true
                 && obstacle.didCollideRight(player) == true) {
+            //Michael
             if (player.loseLife()) {
                 obstacle.setSpeed(0);
                 player.setSpeed(0);
