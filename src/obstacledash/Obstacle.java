@@ -45,7 +45,7 @@ public class Obstacle extends Block implements Collidable
         color = c;
     }
     
-    public void increaseSpeed()
+    public void increaseSpeed() //Shannon
     {
         speed = speed + 1;
     }

@@ -89,7 +89,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         obstacle.move(graphToBack);
         if (obstacle.getX() + obstacle.getWidth() <= 0) {
             score++;
-            obstacle.increaseSpeed();
+            obstacle.increaseSpeed(); //Shannon
             obstacle.draw(graphToBack, Color.DARK_GRAY);
             obstacle.setHeight(obstacleHeight[(int) (Math.random() * 4)]);
             obstacle.setX(800);
@@ -103,6 +103,8 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
             if (player.loseLife()) {
                 obstacle.setSpeed(0);
                 player.setSpeed(0);
+                graphToBack.setColor(Color.GREEN);
+                graphToBack.drawString("GAME OVER", 375, 10); //Shannon
                 try {
                     leaderBoard.save(score);
                 } catch (IOException ex) {
@@ -130,11 +132,6 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
             player.setY(400);
             player.draw(graphToBack);
         }
-        if (keys[2] == true) {
-            score = 0;
-            graphToBack.setColor(Color.black);
-            graphToBack.fillRect(1000, 1000, 1000, 1000);
-        }
 
         twoDGraph.drawImage(back, null, 0, 0);
     }
@@ -151,9 +148,6 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
             case KeyEvent.VK_ENTER:
                 keys[1] = true;
                 break;
-            case KeyEvent.VK_ESCAPE:
-                keys[2] = true;
-                break;
         }
     }
 
@@ -164,9 +158,6 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
                 break;
             case KeyEvent.VK_ENTER:
                 keys[1] = false;
-                break;
-            case KeyEvent.VK_ESCAPE:
-                keys[2] = false;
                 break;
         }
     }

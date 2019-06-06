@@ -20,7 +20,7 @@ public class Player extends Block
     private int lives = 3;
     public Player()
     {
-        super(100,400,20,20,Color.black);
+        super(150,450,20,20,Color.black);
         speed = 5;
     }
     
