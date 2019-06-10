@@ -37,6 +37,12 @@ public class Player extends Block
         speed = s;
     }
     
+    //Chloe
+    public int getSpeed() 
+    {
+        return speed;
+    }
+    
     //Shannon
     public void setLives(int l)
     {
