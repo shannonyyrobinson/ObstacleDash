@@ -65,7 +65,7 @@ public class StartScreenGUI extends javax.swing.JFrame {
         InstructionsLabel.setColumns(20);
         InstructionsLabel.setForeground(new java.awt.Color(255, 255, 255));
         InstructionsLabel.setRows(5);
-        InstructionsLabel.setText("Instructions:\nUse the space bar to hop over obstacles\nHopping over obstacles increases your score\nHop over as many obstacles as you can to beat your high score\nPress Enter to start the game again");
+        InstructionsLabel.setText("Instructions:\nUse the space bar to hop over obstacles\nHopping over obstacles increases your score\nHop over as many obstacles as you can to beat your high score\nPress Enter to start the game again\nPress p to pause the game");
         InstructionsLabel.setBorder(null);
         jScrollPane1.setViewportView(InstructionsLabel);
 
@@ -76,6 +76,11 @@ public class StartScreenGUI extends javax.swing.JFrame {
         ColorBox.setBackground(new java.awt.Color(0, 255, 0));
         ColorBox.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
         ColorBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BLACK", "RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE" }));
+        ColorBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ColorBoxActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setBackground(new java.awt.Color(0, 0, 0));
         jTextArea1.setColumns(20);
@@ -93,25 +98,22 @@ public class StartScreenGUI extends javax.swing.JFrame {
                 .addComponent(ObstacleDashLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(183, 183, 183))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jScrollPane1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(238, 238, 238)
-                                .addComponent(Start))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(169, 169, 169)
-                                .addComponent(ColorLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(69, 69, 69)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(Start))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(ColorLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,16 +122,16 @@ public class StartScreenGUI extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(ObstacleDashLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ColorLabel)
                     .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
+                .addGap(32, 32, 32)
                 .addComponent(Start)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,6 +152,10 @@ public class StartScreenGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         play = true;
     }//GEN-LAST:event_StartActionPerformed
+
+    private void ColorBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColorBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ColorBoxActionPerformed
 
     /**
      * @param args the command line arguments

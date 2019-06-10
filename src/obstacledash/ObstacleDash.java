@@ -125,6 +125,8 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         if (keys[0] == true) {
             jump = true;
         }
+        
+        //restarts the game
         if (keys[1] == true) {
             score = 0;
             obstacle.draw(graphToBack, Color.DARK_GRAY);
@@ -152,6 +154,10 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
                 break;
             case KeyEvent.VK_ENTER:
                 keys[1] = true;
+                break;
+            //Chloe - pause game
+            case KeyEvent.VK_P:
+                keys[2] = true;
                 break;
         }
     }

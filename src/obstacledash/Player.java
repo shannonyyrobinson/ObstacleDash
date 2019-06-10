@@ -36,12 +36,14 @@ public class Player extends Block
     {
         speed = s;
     }
+    
     //Michael
     public boolean loseLife(){
         lives--;
         lives = Math.max(0,lives);
         return lives <=0;
     }
+    
     public void draw(Graphics window){
         window.setColor(getColor());
         window.fillRect(getX(), getY(), getWidth(), getHeight());
@@ -60,5 +62,6 @@ public class Player extends Block
         setX(n);
         draw(window);
     }
+    
     
 }
