@@ -50,6 +50,11 @@ public class Obstacle extends Block implements Collidable
         speed = speed + 1;
     }
     
+    public int getSpeed() //Chloe
+    {
+        return speed;
+    }
+    
     public void move(Graphics window)
     {
         draw(window, Color.DARK_GRAY);
