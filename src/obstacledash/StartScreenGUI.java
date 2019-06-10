@@ -18,6 +18,7 @@ public class StartScreenGUI extends javax.swing.JFrame {
      */
     public static boolean play;
     public static Color color;
+    public String colorString;
     
     public StartScreenGUI() {
         initComponents();
@@ -191,6 +192,7 @@ public class StartScreenGUI extends javax.swing.JFrame {
         while (play == false){
             screen.setVisible(true);
         }
+        
         
         /*if (((String)ColorBox.getSelectedItem()).equals("BLACK"))
         {

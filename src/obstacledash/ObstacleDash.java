@@ -136,6 +136,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
             player.draw(graphToBack, Color.DARK_GRAY);
             player.setY(400);
             player.draw(graphToBack);
+            player.setLives(3); //Shannon
         }
 
         twoDGraph.drawImage(back, null, 0, 0);
