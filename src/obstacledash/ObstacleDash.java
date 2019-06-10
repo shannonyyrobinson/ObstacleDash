@@ -35,6 +35,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
     private LeaderBoard leaderBoard;
     private int[] obstacleHeight;
     private Player player;
+    int increasesp;
 
     public ObstacleDash() {
         keys = new boolean[3];
@@ -54,6 +55,8 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         obstacle = new Obstacle();
 
         leaderBoard = new LeaderBoard();
+
+        increasesp = 0;
     }
 
     public void paint(Graphics window) {
@@ -72,7 +75,6 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         graphToBack.drawString("HIGH SCORE: " + leaderBoard.get(), 375, 100);
         graphToBack.setColor(Color.black);
         graphToBack.fillRect(0, 450, 800, 200);
-        
 
         player.draw(graphToBack);
         if (jump == true) {
@@ -89,7 +91,11 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         obstacle.move(graphToBack);
         if (obstacle.getX() + obstacle.getWidth() <= 0) {
             score++;
-            obstacle.increaseSpeed(); //Shannon
+            increasesp = 0; //Chloe
+            if (obstacle.getSpeed() < 6 && score % 5 == 0 && increasesp < 1) { //Chloe
+                obstacle.increaseSpeed(); //Shannon
+                increasesp++; //Chloe
+            }
             obstacle.draw(graphToBack, Color.DARK_GRAY);
             obstacle.setHeight(obstacleHeight[(int) (Math.random() * 4)]);
             obstacle.setX(800);
@@ -111,12 +117,10 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
                 } catch (IOException ex) {
                     Logger.getLogger(ObstacleDash.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-            else{
+            } else {
                 player.movePast(graphToBack, obstacle.getX() + obstacle.getWidth() + 5);
             }
         }
-        
 
         if (keys[0] == true) {
             jump = true;
