@@ -18,7 +18,7 @@ public class StartScreenGUI extends javax.swing.JFrame {
      */
     public static boolean play;
     public static Color color;
-    public String colorString;
+
     
     public StartScreenGUI() {
         initComponents();
@@ -157,11 +157,45 @@ public class StartScreenGUI extends javax.swing.JFrame {
 
     private void ColorBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColorBoxActionPerformed
         // TODO add your handling code here:
+        //Shannon
+        if (ColorBox.getSelectedItem().equals("BLACK"))
+        {
+            color = Color.BLACK;
+        }
+        else if (ColorBox.getSelectedItem().equals("RED"))
+        {
+            color = Color.RED;
+        }
+        else if (ColorBox.getSelectedItem().equals("ORANGE"))
+        {
+            color = Color.ORANGE;
+        }
+        else if (ColorBox.getSelectedItem().equals("YELLOW"))
+        {
+            color = Color.YELLOW;
+        }
+        else if (ColorBox.getSelectedItem().equals("GREEN"))
+        {
+            color = Color.GREEN;
+        }
+        else if (ColorBox.getSelectedItem().equals("BLUE"))
+        {
+            color = Color.BLUE;
+        }
+        else if (ColorBox.getSelectedItem().equals("PURPLE"))
+        {
+            color = Color.MAGENTA;
+        }
     }//GEN-LAST:event_ColorBoxActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    public Color getColor()  //Shannon
+    {
+        return color;
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -193,18 +227,13 @@ public class StartScreenGUI extends javax.swing.JFrame {
             }
         });
         */
-        color = Color.BLACK;
         StartScreenGUI screen = new StartScreenGUI();
         //new StartScreenGUI().setVisible(true);
         while (play == false){
             screen.setVisible(true);
         }
         
-        
-        /*if (((String)ColorBox.getSelectedItem()).equals("BLACK"))
-        {
-            color = Color.BLACK;
-        }*/
+ 
         Game ObstacleDash = new Game();
         screen.setVisible(false);
     }
