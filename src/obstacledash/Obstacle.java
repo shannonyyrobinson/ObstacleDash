@@ -24,13 +24,13 @@ public class Obstacle extends Block implements Collidable
     
     public Obstacle()
     {
-        super(800,350,50,100,Color.black);
+        super(700,350,50,100,Color.black);
         speed = 3;
         
     }
     
     public Obstacle(Color c){
-        super (800, 350, 50, 100);
+        super (700, 350, 50, 100);
         speed = 3;
         color = c;
     }
