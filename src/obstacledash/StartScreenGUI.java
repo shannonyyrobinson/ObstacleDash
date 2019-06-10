@@ -18,7 +18,6 @@ public class StartScreenGUI extends javax.swing.JFrame {
      */
     public static boolean play;
     public static Color color;
-    public String colorString;
     
     public StartScreenGUI() {
         initComponents();
@@ -42,6 +41,7 @@ public class StartScreenGUI extends javax.swing.JFrame {
         ColorBox = new javax.swing.JComboBox();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        SelectColor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +90,15 @@ public class StartScreenGUI extends javax.swing.JFrame {
         jTextArea1.setText("Chloe Zhong\nShannon Robinson\nMichael Chen\nLynne Dillman");
         jScrollPane3.setViewportView(jTextArea1);
 
+        SelectColor.setBackground(new java.awt.Color(0, 255, 0));
+        SelectColor.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
+        SelectColor.setText("OK");
+        SelectColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectColorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -114,8 +123,10 @@ public class StartScreenGUI extends javax.swing.JFrame {
                         .addGap(173, 173, 173)
                         .addComponent(ColorLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(SelectColor)))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,11 +135,12 @@ public class StartScreenGUI extends javax.swing.JFrame {
                 .addComponent(ObstacleDashLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ColorLabel)
-                    .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                    .addComponent(ColorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SelectColor))
+                .addGap(31, 31, 31)
                 .addComponent(Start)
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -158,9 +170,47 @@ public class StartScreenGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ColorBoxActionPerformed
 
+    private void SelectColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectColorActionPerformed
+        // TODO add your handling code here:
+        //Shannon
+        if (ColorBox.getSelectedItem().equals("BLACK"))
+        {
+            color = Color.BLACK;
+        }
+        else if (ColorBox.getSelectedItem().equals("RED"))
+        {
+            color = Color.RED;
+        }
+        else if (ColorBox.getSelectedItem().equals("ORANGE"))
+        {
+            color = Color.ORANGE;
+        }
+        else if (ColorBox.getSelectedItem().equals("YELLOW"))
+        {
+            color = Color.YELLOW;
+        }
+        else if (ColorBox.getSelectedItem().equals("GREEN"))
+        {
+            color = Color.GREEN;
+        }
+        else if (ColorBox.getSelectedItem().equals("BLUE"))
+        {
+            color = Color.BLUE;
+        }
+        else if (ColorBox.getSelectedItem().equals("PURPLE"))
+        {
+            color = Color.MAGENTA;
+        }
+    }//GEN-LAST:event_SelectColorActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+    public Color getColor(){  //Shannon
+        return color;
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -192,18 +242,13 @@ public class StartScreenGUI extends javax.swing.JFrame {
             }
         });
         */
-        color = Color.BLACK;
         StartScreenGUI screen = new StartScreenGUI();
+        
         //new StartScreenGUI().setVisible(true);
         while (play == false){
             screen.setVisible(true);
         }
         
-        
-        /*if (((String)ColorBox.getSelectedItem()).equals("BLACK"))
-        {
-            color = Color.BLACK;
-        }*/
         Game ObstacleDash = new Game();
         screen.setVisible(false);
     }
@@ -213,6 +258,7 @@ public class StartScreenGUI extends javax.swing.JFrame {
     private javax.swing.JLabel ColorLabel;
     private javax.swing.JTextArea InstructionsLabel;
     private javax.swing.JLabel ObstacleDashLabel;
+    private javax.swing.JButton SelectColor;
     private javax.swing.JButton Start;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
