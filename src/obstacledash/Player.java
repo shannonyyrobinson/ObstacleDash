@@ -37,8 +37,15 @@ public class Player extends Block
         speed = s;
     }
     
+    //Shannon
+    public void setLives(int l)
+    {
+        lives = l;
+    }
+    
     //Michael
-    public boolean loseLife(){
+    public boolean loseLife()
+    {
         lives--;
         lives = Math.max(0,lives);
         return lives <=0;
