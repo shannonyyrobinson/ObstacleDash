@@ -192,6 +192,10 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
                 player.move(graphToBack);
                 paused = false;
             }
+            
+            //lynne
+            graphToBack.setColor(Color.BLUE);
+            graphToBack.drawString("UNPAUSE", 10, 600);
         }
             twoDGraph.drawImage(back, null, 0, 0);
         }
