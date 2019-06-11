@@ -38,6 +38,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
     int increasesp;
     int ospeedafter;
     int pspeedafter;
+    boolean paused = false;
 
     public ObstacleDash() {
         keys = new boolean[4];
@@ -143,16 +144,28 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
             player.setLives(3); //Shannon
         }
         
-        //Chloe - pauses the game
-        if (keys[2] == true){
+        
+        
+        if (paused == false){
             ospeedafter = obstacle.getSpeed();
             pspeedafter = player.getSpeed();
+        }
+        
+        //Chloe - pauses the game
+        if (keys[2] == true){
+            paused = true;
+            //ospeedafter = obstacle.getSpeed();
+            //pspeedafter = player.getSpeed();
             obstacle.setX(obstacle.getX());
             obstacle.setY(obstacle.getY());
             player.setX(player.getX());
             player.setY(player.getY());
             obstacle.setSpeed(0);
             player.setSpeed(0);
+            //debug
+            System.out.println(ospeedafter);
+            System.out.println(pspeedafter);
+            
         }
         
         if (keys[3] == true){
@@ -160,6 +173,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
             player.setSpeed(pspeedafter);
             obstacle.move(graphToBack);
             player.move(graphToBack);
+            paused = false; 
         }
 
         twoDGraph.drawImage(back, null, 0, 0);
@@ -196,6 +210,9 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
                 break;
             case KeyEvent.VK_ENTER:
                 keys[1] = false;
+                break;
+            case KeyEvent.VK_R:
+                keys[3] = false;
                 break;
         }
     }
