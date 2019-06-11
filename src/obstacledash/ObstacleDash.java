@@ -169,6 +169,10 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
             //debug
             System.out.println(ospeedafter);
             System.out.println(pspeedafter);
+            
+            //lynne
+            graphToBack.setColor(Color.BLUE);
+            graphToBack.drawString("PAUSE", 400, 300);
 
         }
 
