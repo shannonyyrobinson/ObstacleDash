@@ -31,10 +31,13 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
     private BufferedImage back;
     private int score;
     private boolean jump;
+
     private Obstacle obstacle;
     private LeaderBoard leaderBoard;
     private int[] obstacleHeight;
     private Player player;
+
+    private boolean jumped;
     int increasesp;
     int ospeedafter;
     int pspeedafter;
@@ -95,7 +98,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         if (obstacle.getX() + obstacle.getWidth() <= 0) {
             score++;
             increasesp = 0; //Chloe
-            if (obstacle.getSpeed() < 6 && score % 5 == 0 && increasesp < 1) { //Chloe
+            if (obstacle.getSpeed() < 8 && score % 5 == 0 && increasesp < 1) { //Chloe
                 obstacle.increaseSpeed(); //Shannon
                 increasesp++; //Chloe
             }
@@ -128,7 +131,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         if (keys[0] == true) {
             jump = true;
         }
-        
+
         //restarts the game
         if (keys[1] == true) {
             score = 0;
@@ -143,16 +146,17 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
             player.draw(graphToBack);
             player.setLives(3); //Shannon
         }
-        
-        
-        
-        if (paused == false){
+
+        if (paused == false) {
             ospeedafter = obstacle.getSpeed();
             pspeedafter = player.getSpeed();
+            if (player.getY() < 450) {
+                jumped = true;
+            }
         }
-        
+
         //Chloe - pauses the game
-        if (keys[2] == true){
+        if (keys[2] == true) {
             paused = true;
             //ospeedafter = obstacle.getSpeed();
             //pspeedafter = player.getSpeed();
@@ -165,19 +169,30 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
             //debug
             System.out.println(ospeedafter);
             System.out.println(pspeedafter);
-            
-        }
-        
-        if (keys[3] == true){
-            obstacle.setSpeed(ospeedafter);
-            player.setSpeed(pspeedafter);
-            obstacle.move(graphToBack);
-            player.move(graphToBack);
-            paused = false; 
+
         }
 
-        twoDGraph.drawImage(back, null, 0, 0);
-    }
+        if (keys[3] == true) {
+            obstacle.setSpeed(ospeedafter);
+            player.setSpeed(pspeedafter);
+            if (jumped == true) {
+                player.move(graphToBack);
+                if (player.getY() == 250) {
+                    player.setSpeed(-2);
+                }
+                if (player.getY() == 400) {
+                    jump = false;
+                    player.setSpeed(5);
+                }
+                obstacle.move(graphToBack);
+                player.move(graphToBack);
+                paused = false;
+            }
+        }
+            twoDGraph.drawImage(back, null, 0, 0);
+        }
+    
+
     
 
     public void update(Graphics window) {
@@ -210,9 +225,6 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
                 break;
             case KeyEvent.VK_ENTER:
                 keys[1] = false;
-                break;
-            case KeyEvent.VK_R:
-                keys[3] = false;
                 break;
         }
     }
