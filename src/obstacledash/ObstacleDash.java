@@ -81,6 +81,9 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         graphToBack.drawString("HIGH SCORE: " + leaderBoard.get(), 375, 100);
         graphToBack.setColor(Color.black);
         graphToBack.fillRect(0, 450, 800, 200);
+        //lynne
+        graphToBack.setColor(Color.yellow);
+        graphToBack.fillOval(600, 50, 100, 100);
 
         player.draw(graphToBack);
         if (jump == true) {
