@@ -24,7 +24,7 @@ public class Obstacle extends Block implements Collidable
     
     public Obstacle()
     {
-        super(700,350,50,100,Color.black);
+        super(700,350,50,100,Color.green);
         speed = 3;
         
     }
@@ -57,7 +57,7 @@ public class Obstacle extends Block implements Collidable
     
     public void move(Graphics window)
     {
-        draw(window, Color.DARK_GRAY);
+        draw(window, Color.BLUE);
         setX(getX() - speed);
         draw(window); 
     }
