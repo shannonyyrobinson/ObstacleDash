@@ -65,13 +65,13 @@ public class Player extends Block
     }
     public void move(Graphics window)
     {
-        draw(window, Color.DARK_GRAY);
+        draw(window, Color.BLUE);
         setY(getY() - speed);
         draw(window); 
     }
     //Michael
     public void movePast(Graphics window, int n){
-        draw(window, Color.DARK_GRAY);
+        draw(window, Color.BLUE);
         setX(n);
         draw(window);
     }
