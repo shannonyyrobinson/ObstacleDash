@@ -138,6 +138,9 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         //restarts the game
         if (keys[1] == true) {
             score = 0;
+            //lynne - gets rid of "gameover" message when game restarts
+            graphToBack.setColor(Color.BLUE);
+            graphToBack.drawString("GAMEOVER", 400, 300);
             obstacle.draw(graphToBack, Color.BLUE);
             obstacle.setHeight((int) (Math.random() * 50) + 50);
             obstacle.setX(800);
