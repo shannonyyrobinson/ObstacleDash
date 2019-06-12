@@ -51,7 +51,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
             obstacleHeight[i - 1] = 25 * i;
         }
 
-        setBackground(Color.DARK_GRAY);
+        setBackground(Color.BLUE);
         setVisible(true);
 
         new Thread(this).start();
@@ -79,7 +79,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         graphToBack.drawString("LEADERBOARD", 375, 10);
         graphToBack.drawString("CURRENT SCORE: " + score, 375, 50);
         graphToBack.drawString("HIGH SCORE: " + leaderBoard.get(), 375, 100);
-        graphToBack.setColor(Color.black);
+        graphToBack.setColor(Color.green);
         graphToBack.fillRect(0, 450, 800, 200);
         //lynne
         graphToBack.setColor(Color.yellow);
@@ -105,7 +105,7 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
                 obstacle.increaseSpeed(); //Shannon
                 increasesp++; //Chloe
             }
-            obstacle.draw(graphToBack, Color.DARK_GRAY);
+            obstacle.draw(graphToBack, Color.GREEN);
             obstacle.setHeight(obstacleHeight[(int) (Math.random() * 4)]);
             obstacle.setX(800);
             obstacle.setY(400 - (obstacle.getHeight() - 50));
@@ -138,13 +138,13 @@ public class ObstacleDash extends Canvas implements KeyListener, Runnable {
         //restarts the game
         if (keys[1] == true) {
             score = 0;
-            obstacle.draw(graphToBack, Color.DARK_GRAY);
+            obstacle.draw(graphToBack, Color.BLUE);
             obstacle.setHeight((int) (Math.random() * 50) + 50);
             obstacle.setX(800);
             obstacle.setY(400 - (obstacle.getHeight() - 50));
             obstacle.move(graphToBack);
             obstacle.setSpeed(3);
-            player.draw(graphToBack, Color.DARK_GRAY);
+            player.draw(graphToBack, Color.BLUE);
             player.setY(400);
             player.draw(graphToBack);
             player.setLives(3); //Shannon
